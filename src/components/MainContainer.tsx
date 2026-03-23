@@ -1,3 +1,56 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:01ab85ea2e1be2145634d68401bda8fa71ff52a2ac30177bbd6dade745e025fa
-size 1604
+import { PropsWithChildren, useEffect, useState } from "react";
+import About from "./About";
+import Contact from "./Contact";
+import Cursor from "./Cursor";
+import Landing from "./Landing";
+import Navbar from "./Navbar";
+import SocialIcons from "./SocialIcons";
+import setSplitText from "./utils/splitText";
+import Skills from "./Skills";
+import Projects from "./Projects";
+import Achievements from "./Achievements";
+import Certifications from "./Certifications";
+import Study from "./Study";
+
+const MainContainer = ({ children }: PropsWithChildren) => {
+  const [isDesktopView, setIsDesktopView] = useState<boolean>(
+    window.innerWidth > 1024
+  );
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      setSplitText();
+      setIsDesktopView(window.innerWidth > 1024);
+    };
+    resizeHandler();
+    window.addEventListener("resize", resizeHandler);
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, [isDesktopView]);
+
+  return (
+    <div className="container-main">
+      <Cursor />
+      <Navbar />
+      <SocialIcons />
+      {isDesktopView && children}
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <div className="container-main">
+            <Landing>{!isDesktopView && children}</Landing>
+            <About />
+            <Skills />
+            <Projects />
+            <Achievements />
+            <Certifications />
+            <Study />
+            <Contact />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MainContainer;

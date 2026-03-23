@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e8dd9e113517e3b0c8342873ebd8bde559a18f6c014c9e8c8c5e30d357114027
-size 47
+{"root":["./vite.config.ts"],"version":"5.9.3"}

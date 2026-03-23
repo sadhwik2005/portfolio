@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d8d6ff4f7a78f8ecec3eea1ef835b06faf8b74981d9166d142420f25011ae7e
-size 507
+import "./styles/About.css";
+
+const About = () => {
+  return (
+    <div className="about-section" id="about">
+      <div className="about-me">
+        <h3 className="title">About Me</h3>
+        <p className="para">
+          I am a 3rd year Btech CSE student at Lovely Professional University and pursuing cyber security, with a strong passion for offensive security & protecting critical systems from real-world threats.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default About;

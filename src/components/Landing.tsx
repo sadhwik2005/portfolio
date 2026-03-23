@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:27a3e95288b532d5dafaca11346380b8c0269bd05160deecce77779239c5325f
-size 1048
+import { PropsWithChildren } from "react";
+import "./styles/Landing.css";
+
+const Landing = ({ children }: PropsWithChildren) => {
+  return (
+    <>
+      <div className="landing-section" id="landingDiv">
+        <div className="landing-container">
+          <div className="landing-intro">
+            <h2>Hello! I'm</h2>
+            <h1>
+              SRIRAM
+              <br />
+              <span>SADHWIK</span>
+            </h1>
+
+          </div>
+          <div className="landing-info">
+            <h3>Computer Science Student -</h3>
+            <h2 className="landing-info-h2">
+              <div className="landing-h2-1">Offensive Security</div>
+              <div className="landing-h2-2">Enthusiast</div>
+            </h2>
+            <h2>
+              <div className="landing-h2-info">Enthusiast</div>
+              <div className="landing-h2-info-1">Offensive Security</div>
+            </h2>
+          </div>
+        </div>
+        {children}
+      </div>
+    </>
+  );
+};
+
+export default Landing;

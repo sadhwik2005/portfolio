@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da3498198986a01a0da4bfe87f8553b7c59ccc7946a4a4fcd5aa4354088a0fa8
-size 584
+import { lazy, Suspense } from "react";
+import "./App.css";
+
+const CharacterModel = lazy(() => import("./components/Character"));
+const MainContainer = lazy(() => import("./components/MainContainer"));
+import { LoadingProvider } from "./context/LoadingProvider";
+
+const App = () => {
+  return (
+    <>
+      <LoadingProvider>
+        <Suspense>
+          <MainContainer>
+            <Suspense>
+              <CharacterModel />
+            </Suspense>
+          </MainContainer>
+        </Suspense>
+      </LoadingProvider>
+    </>
+  );
+};
+
+export default App;
